@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <script src="@Url.Content("~/js/site.js")"></script>
+}
+
+<div class="d-flex flex-column">
+    <h1 class="text-center my-5 text-uppercase">công cụ tính lãi tiền gửi tiết kiệm</h1>
+    <input type="number" id="langui" value="@ViewData["SoLanGui"]" hidden />
+    <div class="col-12">
+        <div class="d-flex flex-row justify-content-center gap-5">
+            <div class="col-4 px-5 border rounded-3 d-flex flex-column justify-content-center shadow p-3 mb-5">
+                <form action="/LaiSuat/Index" method="post" id="formLaiSuat">
+                    <div class="mb-3">
+                        <label for="soTien" class="form-label">Số tiền gửi</label>
+                        <input type="text" class="form-control" id="soTien" name="soTien" value="@ViewData["SoTien"]" aria-describedby="text">
+                    </div>
+                    <div class="mb-3">
+                        <label for="laiSuat" class="form-label">Lãi suất gửi</label>
+                        <input type="number" class="form-control" id="laiSuat" name="laiSuat" value="@ViewData["LaiSuat"]" aria-describedby="text">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kyHan" class="form-label">Kỳ hạn gửi</label>
+                        <input type="number" class="form-control" id="kyHan" name="kyHan" value="@ViewData["KyHan"]" aria-describedby="text">
+                    </div>
+                    @*<div class="mb-3">
+                        <label for="solangui" class="form-label">Kỳ hạn gửi</label>
+                        <select class="form-select" id="solangui" name="solangui" aria-label="">
+                            <option value="0">Số lần gửi</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>*@
+                </form>
+                <div class="d-flex align-items-center justify-content-center mt-5">
+                    <button type="submit" form="formLaiSuat" id="ketqua" class="btn btn-primary px-4 py-2">Xem kết quả</button>
+                </div>
+            </div>
+            <div class="col-4 px-5 border rounded-3 d-flex flex-column justify-content-center shadow p-3 mb-5">
+                <div class="mb-5">
+                    <label for="soTienLai" class="form-label fw-bold">Số tiền lãi nhận được</label>
+                    <input type="text" class="form-control" id="soTienLai" name="soTienLai" value="@ViewData["SoTienLai"]" aria-describedby="text">
+                </div>
+                <div class="mb-3">
+                    <label for="tongSoTien" class="form-label fw-bold">Tổng số liền nhận được khi đến hạn</label>
+                    <input type="text" class="form-control" id="tongSoTien" name="tongSoTien" value="@ViewData["TongSoTien"]" aria-describedby="text">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
